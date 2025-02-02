@@ -1,0 +1,30 @@
+<div class="container mx-auto p-4">
+    <h2 class="text-2xl font-semibold text-center mb-6">Job Details</h2>
+  
+    <div *ngIf="job; else loading" class="bg-white p-6 rounded-lg shadow-md">
+      <h3 class="text-xl font-semibold mb-4">{{ job.job_title }}</h3>
+      
+      <div class="space-y-4">
+        <p><strong>Job Description:</strong> {{ job.job_des }}</p>
+        <p><strong>Specialisms:</strong> {{ job.specialisms }}</p>
+        <p><strong>Offered Salary:</strong> ${{ job.offered_salary | number:'1.0-0' }}</p>
+        <p><strong>Career Level:</strong> {{ job.career_level }}</p>
+        <p><strong>Experience:</strong> {{ job.experience }}</p>
+        <p><strong>Gender:</strong> {{ job.gender }}</p>
+        <p><strong>Industry:</strong> {{ job.industry }}</p>
+        <p><strong>Qualification:</strong> {{ job.qualification }}</p>
+        <p><strong>Application Deadline:</strong> {{ job.application_deadline_date | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+        <p><strong>Location:</strong> {{ job.city }}, {{ job.country }}</p>
+        <p><strong>Complete Address:</strong> {{ job.complete_address }}</p>
+        <p><strong>Keywords:</strong> {{ job.keywords }}</p>
+      </div>
+    </div>
+  
+    <!-- Loading Spinner -->
+    <ng-template #loading>
+      <div class="text-center py-6">
+        <span class="text-gray-500">Loading job details...</span>
+      </div>
+    </ng-template>
+  </div>
+  
